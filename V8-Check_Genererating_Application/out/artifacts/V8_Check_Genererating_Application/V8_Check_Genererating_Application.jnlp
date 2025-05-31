@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="V8_Check_Genererating_Application.jnlp">
+    <information>
+        <title>Payroll System with Check Generation</title>
+        <vendor>Kendricks Tech Usa</vendor>
+        <description>none</description>
+        <offline-allowed/>
+    </information>
+    <update check="background"/>
+    <resources>
+        <j2se version="11.0.21+" href="http://java.sun.com/products/autodl/j2se"/>
+        <jar href="V8_Check_Genererating_Application.jar" size="85000" download="eager"/>
+        <jar href="sqlite-jdbc-3.36.0.3.jar" size="9731064" download="eager"/>
+    </resources>
+    <jfx:javafx-desc width="1200" height="800" main-class="com.example.v8check_genererating_application.HelloApplication" name="HelloApplication"/>
+</jnlp>
+

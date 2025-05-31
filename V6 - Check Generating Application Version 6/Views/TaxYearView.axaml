@@ -1,0 +1,28 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:Check_Generating_Application_Version_6.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Check_Generating_Application_Version_6.Views.TaxYearView">
+    <Design.DataContext>
+        <viewModels:TaxYearViewModel />
+    </Design.DataContext>
+    <StackPanel>
+        <Label Content="Beginning" HorizontalAlignment="Stretch" />
+        <DatePicker SelectedDate="{Binding Begin}" HorizontalAlignment="Stretch" />
+
+        <Label Content="End" HorizontalAlignment="Stretch" />
+        <DatePicker SelectedDate="{Binding End}" HorizontalAlignment="Stretch" />
+
+        <Label Content="Pick a date" />
+        <ComboBox Items="{Binding Items}" SelectedIndex="{Binding SelectedIndex}" HorizontalAlignment="Stretch">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <ComboBoxItem Content="{Binding}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+    </StackPanel>
+</UserControl>

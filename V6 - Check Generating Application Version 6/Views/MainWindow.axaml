@@ -1,0 +1,32 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Check_Generating_Application_Version_6.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Check_Generating_Application_Version_6.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Check_Generating_Application_Version_6">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+    <Grid RowDefinitions="10*,30" Margin="10">
+        <UserControl Grid.Row="0" Content="{Binding Content}" />
+
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*">
+            <Button Grid.Column="0" HorizontalAlignment="Stretch" Content="Add" HorizontalContentAlignment="Center"
+                    Command="{Binding Content.AddButton}" />
+            <Button Grid.Column="1" HorizontalAlignment="Stretch" Content="Delete" HorizontalContentAlignment="Center"
+                    Command="{Binding Content.DeleteButton}" />
+            <Button Grid.Column="2" HorizontalAlignment="Stretch" Content="Save" HorizontalContentAlignment="Center"
+                    Command="{Binding Content.SaveButton}" />
+            <Button Grid.Column="3" HorizontalAlignment="Stretch" Content="{Binding Content.SpecialText}"
+                    HorizontalContentAlignment="Center" Command="{Binding Content.SpecialButton}" />
+            <Button Grid.Column="4" HorizontalAlignment="Stretch" Content="{Binding Content.SpecialText2}"
+                    HorizontalContentAlignment="Center" Command="{Binding Content.SpecialButton2}" />
+        </Grid>
+    </Grid>
+</Window>

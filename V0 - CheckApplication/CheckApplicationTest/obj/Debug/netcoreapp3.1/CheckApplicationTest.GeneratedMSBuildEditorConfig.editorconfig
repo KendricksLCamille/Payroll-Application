@@ -1,0 +1,8 @@
+is_global = true
+build_property.RootNamespace = CheckApplicationTest
+build_property.ProjectDir = /home/kendricks/Desktop/Camille Business Applications/Check Application/V0 - CheckApplication/CheckApplicationTest/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.CsWinRTUseWindowsUIXamlProjections = false
+build_property.EffectiveAnalysisLevelStyle = 
+build_property.EnableCodeStyleSeverity = 

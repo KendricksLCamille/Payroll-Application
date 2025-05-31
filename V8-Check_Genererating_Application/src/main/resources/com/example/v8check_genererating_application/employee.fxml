@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      xmlns="http://javafx.com/javafx"
+      prefWidth="800" fx:controller="com.example.v8check_genererating_application.EmployeeController"
+      maxWidth="1.7976931348623157E308" style="-fx-border-color: green; -fx-border-width: 2;">
+    <Label text="Name"/>
+    <TextField fx:id="Name" maxWidth="1.7976931348623157E308"/> <!--Here-->
+    <Separator maxWidth="1.7976931348623157E308" style="-fx-background-color: black;"/> <!--And here-->
+    <Label text="Address"/>
+    <TextField fx:id="Address" maxWidth="1.7976931348623157E308"/>
+    <Separator maxWidth="1.7976931348623157E308" style="-fx-background-color: black;"/>
+    <Label text="City"/>
+    <TextField fx:id="City" maxWidth="1.7976931348623157E308"/>
+    <Separator maxWidth="1.7976931348623157E308" style="-fx-background-color: black;"/>
+    <Label text="State"/>
+    <TextField fx:id="State" maxWidth="1.7976931348623157E308"/>
+    <Separator maxWidth="1.7976931348623157E308" style="-fx-background-color: black;"/>
+    <Label text="ZipCode"/>
+    <TextField fx:id="ZipCode" maxWidth="1.7976931348623157E308"/>
+    <Separator maxWidth="1.7976931348623157E308" style="-fx-background-color: black;"/>
+    <Label text="SocialSecurityNumber"/>
+    <TextField fx:id="SocialSecurityNumber" maxWidth="1.7976931348623157E308"/>
+    <Separator maxWidth="1.7976931348623157E308" style="-fx-background-color: black;"/>
+    <Label text="WaitPeriod"/>
+    <TextField fx:id="WaitPeriod" maxWidth="1.7976931348623157E308"/>
+</VBox>

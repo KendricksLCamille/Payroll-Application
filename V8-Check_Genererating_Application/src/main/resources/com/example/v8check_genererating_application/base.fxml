@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="500.0" prefWidth="500.0"
+          xmlns="http://javafx.com/javafx/17.0.2-ea"
+          fx:controller="com.example.v8check_genererating_application.BaseController">
+    <rowConstraints>
+        <RowConstraints percentHeight="90" />
+        <RowConstraints minHeight="30" prefHeight="30"/>
+    </rowConstraints>
+
+    <GridPane GridPane.RowIndex="0" GridPane.hgrow="SOMETIMES">
+        <rowConstraints>
+            <RowConstraints maxHeight="40" minHeight="40" prefHeight="40" />
+            <RowConstraints/>
+        </rowConstraints>
+        <columnConstraints>
+            <ColumnConstraints percentWidth="20" />
+            <ColumnConstraints percentWidth="80" />
+         <ColumnConstraints />
+        </columnConstraints>
+
+        <TextField fx:id="searchBar" GridPane.columnIndex="0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0"
+                   GridPane.vgrow="ALWAYS"/>
+        <ListView fx:id="listView" GridPane.columnIndex="0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" />
+
+        <Pane fx:id="pane" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.vgrow="ALWAYS">
+            <Label>I am dum</Label>
+         <GridPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+        </Pane>
+    </GridPane>
+
+    <VBox GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" GridPane.hgrow="ALWAYS">
+        <Separator style="-fx-padding: 2"/>
+        <HBox spacing="10" VBox.vgrow="ALWAYS" GridPane.hgrow="ALWAYS">
+            <Button maxWidth="Infinity" HBox.hgrow="ALWAYS" maxHeight="Infinity" fx:id="addBtn" text="Add"/>
+            <Button maxWidth="Infinity" HBox.hgrow="ALWAYS" maxHeight="Infinity" fx:id="saveBtn" text="Save"/>
+            <Button maxWidth="Infinity" HBox.hgrow="ALWAYS" maxHeight="Infinity" fx:id="specialBtn" text="Special"/>
+            <Button maxWidth="Infinity" HBox.hgrow="ALWAYS" maxHeight="Infinity" fx:id="deleteBtn" text="Delete"/>
+        </HBox>
+    </VBox>
+
+   <columnConstraints>
+      <ColumnConstraints percentWidth="100.0" />
+   </columnConstraints>
+</GridPane>

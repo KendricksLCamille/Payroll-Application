@@ -1,0 +1,91 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:Check_Generating_Application_Version_6.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="800"
+             x:Class="Check_Generating_Application_Version_6.Views.CheckView">
+    <Design.DataContext>
+        <viewModels:CheckViewModel/>
+    </Design.DataContext>
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top">
+            <Label Content="Tax Page"/>
+            <Label Content="{Binding CurrentEmployeeStr}"/>
+            <Label Content="{Binding TaxYearStr}"/>
+        </StackPanel>
+        
+        <ScrollViewer DockPanel.Dock="Left">
+            <ListBox Items="{Binding Items}" SelectedIndex="{Binding SelectedIndex}"/>
+        </ScrollViewer>
+        
+        <StackPanel DockPanel.Dock="Right">
+            <Grid RowDefinitions="*,*" ColumnDefinitions="*,*">
+                <Label Content="Period Begin" Grid.Row="0" Grid.Column="0"/>
+                <Label Content="Period End" Grid.Row="0" Grid.Column="1"/>
+                <DatePicker Grid.Column="0" Grid.Row="1" SelectedDate="{Binding PeriodBegin}" MinYear="{Binding CurrentTaxYear.Begin}"/>
+                <DatePicker Grid.Column="1" Grid.Row="1" SelectedDate="{Binding PeriodEnd}"  MinYear="{Binding CurrentTaxYear.Begin}"/>
+            </Grid>
+            
+            <Separator Height="10"/>
+            
+            <Grid RowDefinitions="*,*,*,*" ColumnDefinitions="*,*,*,*">
+                <Label Grid.Column="1" Content="Hours"/>
+                <Label Grid.Column="2" Content="Rate"/>
+                <Label Grid.Column="3" Content="Revenue"/>
+                
+                <Label Grid.Row="1" Grid.Column="0" Content="Normal"/>
+                <NumericUpDown Grid.Row="1" Grid.Column="1" Value="{Binding Hours}" Increment="0.01" Minimum="0"/>
+                <NumericUpDown Grid.Row="1" Grid.Column="2" Value="{Binding Rate}" Increment="0.01" Minimum="0"/>
+                <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding Revenue}"/>
+                
+                <Label Grid.Row="2" Grid.Column="0" Content="Overtime"/>
+                <NumericUpDown Grid.Row="2" Grid.Column="1" Value="{Binding OvertimeHours}" Increment="0.01" Minimum="0"/>
+                <NumericUpDown Grid.Row="2" Grid.Column="2" Value="{Binding OvertimeRate}" Increment="0.01" Minimum="0"/>
+                <TextBlock Grid.Row="2" Grid.Column="3" Text="{Binding OvertimeRevenue}"/>
+                
+                <Label Grid.Row="3" Grid.Column="0" Content="Total Revenue"/>
+                <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Pay}"/>
+            </Grid>
+            
+            <Separator Height="10"/>
+            
+            <Grid RowDefinitions="*,*,*" ColumnDefinitions="*,*,*,*">
+                <Label Grid.Column="1" Content="Social Security"/>
+                <Label Grid.Column="2" Content="Federal Medicare"/>
+                <Label Grid.Column="3" Content="Federal Tax Rate"/>
+                
+                <Label Grid.Row="1" Grid.Column="0" Content="Rate"/>
+                <NumericUpDown Grid.Row="1" Grid.Column="1" Value="{Binding SSNRate}" Increment="0.01" Minimum="0" Maximum="100"/>
+                <NumericUpDown Grid.Row="1" Grid.Column="2" Value="{Binding FederalMedicareRate}" Increment="0.01" Minimum="0" Maximum="100"/>
+                <NumericUpDown Grid.Row="1" Grid.Column="3" Value="{Binding FederalTaxRate}" Increment="0.01" Minimum="0" Maximum="100"/>
+                
+                <Label Grid.Row="2" Grid.Column="0" Content="Owed"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SSNValue}"/>
+                <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding MedicareValue}"/>
+                <TextBlock Grid.Row="2" Grid.Column="3" Text="{Binding FederalTaxValue}"/>
+            </Grid>
+            
+            <Separator Height="10"/>
+            
+            <Grid RowDefinitions="*,*,*" ColumnDefinitions="*,*,*,*">
+                <Label Grid.Row="0" Grid.Column="1" Content="Revenue"/>
+                <Label Grid.Row="0" Grid.Column="2" Content="Deductions"/>
+                <Label Grid.Row="0" Grid.Column="3" Content="Total Income"/>
+                
+                <Label Grid.Row="1" Grid.Column="1" Content="{Binding Pay}"/>
+                <Label Grid.Row="1" Grid.Column="2" Content="{Binding Deduction}"/>
+                <Label Grid.Row="1" Grid.Column="3" Content="{Binding TotalIncome}"/>
+                
+                <Label Grid.Row="2" Grid.Column="0" Content="YTD"/>
+                <Label Grid.Row="2" Grid.Column="1" Content="{Binding Pay}"/>
+                <Label Grid.Row="2" Grid.Column="2" Content="{Binding Deduction}"/>
+                <Label Grid.Row="2" Grid.Column="3" Content="{Binding TotalIncome}"/>
+            </Grid>
+        </StackPanel>
+        
+        <ScrollViewer DockPanel.Dock="Bottom" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <TextBox Text="{Binding Notes}" AcceptsReturn="True" TextWrapping="Wrap" UndoLimit="40"/>
+        </ScrollViewer>
+    </DockPanel>
+</UserControl>

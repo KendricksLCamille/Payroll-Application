@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.v8check_genererating_application.CheckController2"
+      maxWidth="1.7976931348623157E308" prefHeight="400" prefWidth="400">
+
+    <ComboBox fx:id="comboBoxYear" prefWidth="400" maxWidth="1.7976931348623157E308" promptText="Select a year"/>
+
+    <Separator prefWidth="400" maxWidth="1.7976931348623157E308" style="-fx-padding: 1px;" VBox.vgrow="NEVER"/>
+
+    <VBox prefWidth="400" maxWidth="1.7976931348623157E308">
+        <Label>Period</Label>
+        <HBox maxWidth="1.7976931348623157E308">
+            <GridPane HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308" gridLinesVisible="true">
+                <columnConstraints>
+                    <ColumnConstraints maxWidth="100" minWidth="50"/>
+                    <ColumnConstraints/>
+                </columnConstraints>
+                <Label textAlignment="CENTER" GridPane.columnIndex="0" GridPane.halignment="CENTER">Begin</Label>
+                <DatePicker fx:id="PeriodBegin" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS"
+                            maxWidth="1.7976931348623157E308"/>
+            </GridPane>
+
+            <GridPane HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308" gridLinesVisible="true">
+                <columnConstraints>
+                    <ColumnConstraints maxWidth="100" minWidth="50"/>
+                    <ColumnConstraints/>
+                </columnConstraints>
+                <Label textAlignment="CENTER" GridPane.columnIndex="0" GridPane.halignment="CENTER">End</Label>
+                <DatePicker fx:id="PeriodEnd" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS"
+                            maxWidth="1.7976931348623157E308"/>
+            </GridPane>
+        </HBox>
+    </VBox>
+
+    <Separator prefWidth="400" maxWidth="1.7976931348623157E308" style="-fx-padding: 1px;" VBox.vgrow="NEVER"/>
+
+    <GridPane prefWidth="400" maxWidth="1.7976931348623157E308">
+        <rowConstraints>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+        </rowConstraints>
+        <columnConstraints>
+            <ColumnConstraints/>
+            <ColumnConstraints/>
+            <ColumnConstraints/>
+        </columnConstraints>
+
+        <Label GridPane.columnIndex="0" GridPane.rowIndex="1" prefWidth="100">Normal</Label>
+        <Label GridPane.columnIndex="0" GridPane.rowIndex="2" prefWidth="100">Overtime</Label>
+
+        <Label GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.hgrow="ALWAYS">Hours</Label>
+        <TextField fx:id="txtHours" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.hgrow="ALWAYS"/>
+        <TextField fx:id="txtOvertimeHours" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.hgrow="ALWAYS"/>
+
+
+        <Label GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.hgrow="ALWAYS">Rate</Label>
+        <TextField fx:id="txtHourlyRate" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.hgrow="ALWAYS"/>
+        <TextField fx:id="txtOvertimeHourlyRate" GridPane.columnIndex="2" GridPane.rowIndex="2"
+                   GridPane.hgrow="ALWAYS"/>
+    </GridPane>
+
+    <Separator  prefWidth="800" maxWidth="1.7976931348623157E308" style="-fx-padding: 1px;" VBox.vgrow="NEVER" />
+
+    <GridPane   prefWidth="800" maxWidth="1.7976931348623157E308" minWidth="600">
+        <!-- Define column constraints -->
+        <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" />
+            <ColumnConstraints hgrow="ALWAYS" />
+            <ColumnConstraints hgrow="ALWAYS" />
+        </columnConstraints>
+
+        <Label text="Deductions" GridPane.columnSpan="3" GridPane.halignment="CENTER"/>
+
+        <Label text="Social Security Rate" GridPane.rowIndex="1" GridPane.halignment="CENTER"  maxWidth="1.7976931348623157E308"/>
+        <TextField fx:id="txtSSN" promptText="Enter Social Security Rate Here" GridPane.rowIndex="2"
+                   GridPane.halignment="RIGHT" maxWidth="1.7976931348623157E308"/>
+
+        <Label text="Federal Tax Rate" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.halignment="CENTER"  maxWidth="1.7976931348623157E308"/>
+        <TextField fx:id="txtFed" promptText="Enter Federal Tax Rate Here" GridPane.rowIndex="2"
+                   GridPane.columnIndex="1" GridPane.halignment="RIGHT" maxWidth="1.7976931348623157E308"/>
+
+        <Label text="Federal Medicare Rate" GridPane.rowIndex="1" GridPane.columnIndex="2" GridPane.halignment="CENTER"  maxWidth="1.7976931348623157E308"/>
+        <TextField fx:id="txtMed" promptText="Enter Federal Medicare Rate Here" GridPane.rowIndex="2"
+                   GridPane.columnIndex="2" GridPane.halignment="RIGHT" maxWidth="1.7976931348623157E308"/>
+    </GridPane>
+
+    <Separator  prefWidth="800" maxWidth="1.7976931348623157E308" style="-fx-padding: 1px;" VBox.vgrow="NEVER" />
+
+    <Label text="Notes" prefWidth="800" maxWidth="1.7976931348623157E308"/>
+    <TextArea fx:id="txtNotes" prefWidth="800" maxWidth="1.7976931348623157E308" prefHeight="100"
+              maxHeight="1.7976931348623157E308" wrapText="true" promptText="Enter Notes Here"/>
+
+    <Separator prefWidth="800" maxWidth="1.7976931348623157E308" style="-fx-padding: 1px;" VBox.vgrow="NEVER"/>
+
+    <HBox       prefWidth="800" maxWidth="1.7976931348623157E308">
+         <VBox HBox.hgrow="ALWAYS" minWidth="100" prefWidth="100" maxWidth="1.7976931348623157E308">
+            <Label text="Pay" />
+            <Separator />
+             <Label fx:id="lblPay"/>
+        </VBox>
+
+         <VBox HBox.hgrow="ALWAYS" minWidth="100" prefWidth="100" maxWidth="1.7976931348623157E308">
+            <Label text="Overtime" />
+            <Separator />
+             <Label fx:id="lblOvertimePay"/>
+        </VBox>
+
+         <VBox HBox.hgrow="ALWAYS" minWidth="100" prefWidth="100" maxWidth="1.7976931348623157E308">
+             <Label text="Revenue"/>
+            <Separator />
+             <Label fx:id="lblRevenue"/>
+        </VBox>
+
+         <VBox HBox.hgrow="ALWAYS" minWidth="100" prefWidth="100" maxWidth="1.7976931348623157E308">
+            <Label text="SSN" />
+            <Separator />
+             <Label fx:id="lblSSN"/>
+        </VBox>
+
+         <VBox HBox.hgrow="ALWAYS" minWidth="100" prefWidth="100" maxWidth="1.7976931348623157E308">
+            <Label text="Medicare" />
+            <Separator />
+             <Label fx:id="lblMed"/>
+        </VBox>
+
+         <VBox HBox.hgrow="ALWAYS" minWidth="100" prefWidth="100" maxWidth="1.7976931348623157E308">
+            <Label text="Tax" />
+            <Separator />
+             <Label fx:id="lblTax"/>
+        </VBox>
+
+         <VBox HBox.hgrow="ALWAYS" minWidth="100" prefWidth="100" maxWidth="1.7976931348623157E308">
+            <Label text="Deductions" />
+            <Separator />
+             <Label fx:id="lblDeduction"/>
+        </VBox>
+
+         <VBox HBox.hgrow="ALWAYS" minWidth="100" prefWidth="100" maxWidth="1.7976931348623157E308">
+            <Label text="Income" />
+            <Separator />
+             <Label fx:id="lblIncome"/>
+        </VBox>
+    </HBox>
+
+    <Separator  prefWidth="800" maxWidth="1.7976931348623157E308" style="-fx-padding: 1px;" VBox.vgrow="NEVER" />
+
+    <VBox       prefWidth="800" maxWidth="1.7976931348623157E308">
+        <Label>Year to Date</Label>
+        <HBox prefWidth="800" maxWidth="1.7976931348623157E308">
+            <VBox HBox.hgrow="ALWAYS" minWidth="100" prefWidth="100" maxWidth="1.7976931348623157E308">
+                <Label text="Pay" />
+                <Separator />
+                <Label fx:id="ytdLblPay"/>
+            </VBox>
+
+             <VBox HBox.hgrow="ALWAYS" minWidth="100" prefWidth="100" maxWidth="1.7976931348623157E308">
+                <Label text="Overtime" />
+                <Separator />
+                 <Label fx:id="ytdLblOvertimePay"/>
+            </VBox>
+
+             <VBox HBox.hgrow="ALWAYS" minWidth="100" prefWidth="100" maxWidth="1.7976931348623157E308">
+                 <Label text="Revenue"/>
+                <Separator />
+                 <Label fx:id="ytdLblRevenue"/>
+            </VBox>
+
+             <VBox HBox.hgrow="ALWAYS" minWidth="100" prefWidth="100" maxWidth="1.7976931348623157E308">
+                <Label text="SSN" />
+                <Separator />
+                 <Label fx:id="ytdLblSSN"/>
+            </VBox>
+
+             <VBox HBox.hgrow="ALWAYS" minWidth="100" prefWidth="100" maxWidth="1.7976931348623157E308">
+                <Label text="Medicare" />
+                <Separator />
+                 <Label fx:id="ytdLblMed"/>
+            </VBox>
+
+             <VBox HBox.hgrow="ALWAYS" minWidth="100" prefWidth="100" maxWidth="1.7976931348623157E308">
+                <Label text="Tax" />
+                <Separator />
+                 <Label fx:id="ytdLblTax"/>
+            </VBox>
+
+             <VBox HBox.hgrow="ALWAYS" minWidth="100" prefWidth="100" maxWidth="1.7976931348623157E308">
+                <Label text="Deductions" />
+                <Separator />
+                 <Label fx:id="ytdLblDeduction"/>
+            </VBox>
+
+             <VBox HBox.hgrow="ALWAYS" minWidth="100" prefWidth="100" maxWidth="1.7976931348623157E308">
+                <Label text="Income" />
+                <Separator />
+                 <Label fx:id="ytdLblIncome"/>
+            </VBox>
+        </HBox>
+    </VBox>
+
+    <Separator  prefWidth="800" maxWidth="1.7976931348623157E308" style="-fx-padding: 1px;" VBox.vgrow="NEVER" />
+
+    <HBox       prefWidth="800" maxWidth="1.7976931348623157E308">
+        <VBox HBox.hgrow="ALWAYS" minWidth="100" prefWidth="100" maxWidth="1.7976931348623157E308">
+            <Label text="Hours" />
+            <Separator />
+            <Label fx:id="ytdLblHours"/>
+        </VBox>
+
+        <VBox HBox.hgrow="ALWAYS" minWidth="100" prefWidth="100" maxWidth="1.7976931348623157E308">
+            <Label text="Overtime Hours" />
+            <Separator />
+            <Label fx:id="ytdLblOvertimeHours"/>
+        </VBox>
+
+        <VBox HBox.hgrow="ALWAYS" minWidth="100" prefWidth="100" maxWidth="1.7976931348623157E308"/>
+        <VBox HBox.hgrow="ALWAYS" minWidth="100" prefWidth="100" maxWidth="1.7976931348623157E308"/>
+        <VBox HBox.hgrow="ALWAYS" minWidth="100" prefWidth="100" maxWidth="1.7976931348623157E308"/>
+        <VBox HBox.hgrow="ALWAYS" minWidth="100" prefWidth="100" maxWidth="1.7976931348623157E308"/>
+        <VBox HBox.hgrow="ALWAYS" minWidth="100" prefWidth="100" maxWidth="1.7976931348623157E308"/>
+        <VBox HBox.hgrow="ALWAYS" minWidth="100" prefWidth="100" maxWidth="1.7976931348623157E308"/>
+</HBox>
+
+    <Separator prefWidth="800" maxWidth="1.7976931348623157E308" style="-fx-padding: 1px;" VBox.vgrow="NEVER"/>
+
+    <Button fx:id="btnPrint" prefWidth="800" maxWidth="1.7976931348623157E308" text="Print"/>
+</VBox>

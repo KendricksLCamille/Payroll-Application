@@ -1,0 +1,3 @@
+C:\Users\codel\source\repos\CheckApplication\CheckApplication\obj\x86\Debug\CheckApplication.csprojAssemblyReference.cache
+C:\Users\codel\source\repos\CheckApplication\CheckApplication\obj\x86\Debug\App.g.cs
+C:\Users\codel\source\repos\CheckApplication\CheckApplication\obj\x86\Debug\CheckApplication_MarkupCompile.cache

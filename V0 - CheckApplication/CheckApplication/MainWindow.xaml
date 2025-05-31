@@ -1,0 +1,303 @@
+﻿<Window x:Class="CheckApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CheckApplication"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Closing="Save">
+    <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="27"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <ToolBar HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Button Content="Add Person" VerticalAlignment="Stretch" Background="#FFBCFFE4" Click="Button_Click"/>
+                <Button Content="Set Federal Tax Rate" VerticalAlignment="Bottom" Background="#FFFDD7D7" Click="Button_Click_2"/>
+            </ToolBar>
+        </Grid>
+        <Grid Grid.Row="1" Name="ContentGrid">
+            <Grid Name="CheckGrid" Visibility="Collapsed" IsEnabled="False">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Name="PrintPreviewGrid" IsEnabled="True">
+                    <DocumentViewer Name="CheckDV">
+                        <FixedDocument Name="DocFD"/>
+                    </DocumentViewer>
+                </Grid>
+                <Grid Grid.Column="1" Name="EmployeeGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="15*"/>
+                    </Grid.RowDefinitions>
+                    <ComboBox Name="EmployeeCmboBox" Grid.Row="0" IsTextSearchEnabled="True" SelectionChanged="EmployeeCmboBox_SelectionChanged"/>
+                    <Grid Name="PeriodGrid" Grid.Row="1" IsEnabled="False">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="10*"/>
+                        </Grid.RowDefinitions>
+
+                        <DatePicker Name="StartDate" Grid.Row="0" SelectedDateChanged="StartDate_SelectedDateChanged"/>
+                        <DatePicker Name="EndDate"  Grid.Row="1"/>
+
+                        <TextBox Grid.Row="2" Name="HourTxtBox">
+                            <TextBox.Style>
+                                <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                                    <Style.Resources>
+                                        <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                            <VisualBrush.Visual>
+                                                <Label Content="Hours Worked" Foreground="LightGray" />
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Style.Resources>
+                                    <Style.Triggers>
+                                        <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                        </Trigger>
+                                        <Trigger Property="Text" Value="{x:Null}">
+                                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                        </Trigger>
+                                        <Trigger Property="IsKeyboardFocused" Value="True">
+                                            <Setter Property="Background" Value="White" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBox.Style>
+                        </TextBox>
+
+                        <TextBox Grid.Row="3" Name="HourRateTxtBox">
+                            <TextBox.Style>
+                                <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                                    <Style.Resources>
+                                        <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                            <VisualBrush.Visual>
+                                                <Label Content="Hourly Rate" Foreground="LightGray" />
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Style.Resources>
+                                    <Style.Triggers>
+                                        <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                        </Trigger>
+                                        <Trigger Property="Text" Value="{x:Null}">
+                                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                        </Trigger>
+                                        <Trigger Property="IsKeyboardFocused" Value="True">
+                                            <Setter Property="Background" Value="White" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBox.Style>
+                        </TextBox>
+
+                        <TextBox Grid.Row="4" Name="OvertimeTxtBox">
+                            <TextBox.Style>
+                                <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                                    <Style.Resources>
+                                        <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                            <VisualBrush.Visual>
+                                                <Label Content="Overtime Hours Worked" Foreground="LightGray" />
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Style.Resources>
+                                    <Style.Triggers>
+                                        <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                        </Trigger>
+                                        <Trigger Property="Text" Value="{x:Null}">
+                                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                        </Trigger>
+                                        <Trigger Property="IsKeyboardFocused" Value="True">
+                                            <Setter Property="Background" Value="White" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBox.Style>
+                        </TextBox>
+
+                        <TextBox Grid.Row="5" Name="OvertimeRateTxtBox">
+                            <TextBox.Style>
+                                <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                                    <Style.Resources>
+                                        <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                            <VisualBrush.Visual>
+                                                <Label Content="Overtime Hourly Rate" Foreground="LightGray" />
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Style.Resources>
+                                    <Style.Triggers>
+                                        <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                        </Trigger>
+                                        <Trigger Property="Text" Value="{x:Null}">
+                                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                        </Trigger>
+                                        <Trigger Property="IsKeyboardFocused" Value="True">
+                                            <Setter Property="Background" Value="White" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBox.Style>
+                        </TextBox>
+
+                        <Button Name="PeriodButton" Content="Add Period" Grid.Row="6" Click="PeriodButton_Click"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid Name="PersonGrid" Visibility="Collapsed" IsEnabled="False">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Name="lFirstName" Content="First Name" Grid.Row="0" Grid.Column="0" FontSize="48"/>
+                <TextBox Name="txtFirstName" Grid.Row="0" Grid.Column="1" FontSize="48" TextChanged="ShouldAddPersonButtonBeActive"/>
+
+                <Label Name="lMiddleName" Content="Middle Name" Grid.Row="1" Grid.Column="0" FontSize="48"/>
+                <TextBox Name="txtMiddle" Grid.Row="1" Grid.Column="1" FontSize="48" TextChanged="ShouldAddPersonButtonBeActive"/>
+
+                <Label Name="lLastName" Content="Last Name" Grid.Row="2" Grid.Column="0" FontSize="48"/>
+                <TextBox Name="txtLastName" Grid.Row="2" Grid.Column="1" FontSize="48" TextChanged="ShouldAddPersonButtonBeActive"/>
+
+                <Label Name="lSSN" Content="Social Security" Grid.Row="3" Grid.Column="0" FontSize="48"/>
+                <TextBox Name="txtSSN" Grid.Row="3" Grid.Column="1" FontSize="48" TextChanged="ShouldAddPersonButtonBeActive"/>
+
+                <Label Name="lAddress1" Content="Enter Street Address" Grid.Row="3" Grid.Column="0" FontSize="48"/>
+                <TextBox Name="txtAddress1" Grid.Row="3" Grid.Column="1" FontSize="48" TextChanged="ShouldAddPersonButtonBeActive"/>
+
+                <Label Name="lAddress2" Content="Enter City State and Zip Code" Grid.Row="3" Grid.Column="0" FontSize="48"/>
+                <TextBox Name="txtAddress2" Grid.Row="3" Grid.Column="1" FontSize="48" TextChanged="ShouldAddPersonButtonBeActive"/>
+
+                <Button Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="2" Name="buttonAddEmployee" Content="Add" FontStretch="UltraExpanded" Click="buttonAddEmployee_Click" IsEnabled="False"/>
+            </Grid>
+            <StackPanel Name="DeductionStackPanel">
+                
+                <TextBox Name="FederalTaxRateTxtbox">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                            <Style.Resources>
+                                <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                    <VisualBrush.Visual>
+                                        <Label Content="Enter Tax Percentage" Foreground="LightGray" />
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Style.Resources>
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                </Trigger>
+                                <Trigger Property="Text" Value="{x:Null}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                </Trigger>
+                                <Trigger Property="IsKeyboardFocused" Value="True">
+                                    <Setter Property="Background" Value="White" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+
+                <TextBox Name="FederalIcomeTxtbox">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                            <Style.Resources>
+                                <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                    <VisualBrush.Visual>
+                                        <Label Content="Income" Foreground="LightGray" />
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Style.Resources>
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                </Trigger>
+                                <Trigger Property="Text" Value="{x:Null}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                </Trigger>
+                                <Trigger Property="IsKeyboardFocused" Value="True">
+                                    <Setter Property="Background" Value="White" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+
+                <Button Content="Add Tax Rate" Name="AddTaxButton" Click="AddTaxButton_Click"/>
+                <ListView Name = "TaxListView"/>
+                <Button Content="Remove Tax Rate" x:Name="RemoveTaxButton" Click="RemoveTaxButton_Click"/>
+                <Label></Label>
+                <TextBox Name="MedicarePercentageTxtbox" LostKeyboardFocus="MedicarePercentageTxtbox_TextChanged">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                            <Style.Resources>
+                                <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                    <VisualBrush.Visual>
+                                        <Label Content="Enter Medicare Percentage" Foreground="LightGray" />
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Style.Resources>
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                </Trigger>
+                                <Trigger Property="Text" Value="{x:Null}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                </Trigger>
+                                <Trigger Property="IsKeyboardFocused" Value="True">
+                                    <Setter Property="Background" Value="White" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+
+                <TextBox Name="SSNPercentageTxtbox" LostKeyboardFocus="SSNPercentageTxtbox_LostKeyboardFocus">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                            <Style.Resources>
+                                <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                    <VisualBrush.Visual>
+                                        <Label Content="Enter Social Security Percentage" Foreground="LightGray" />
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Style.Resources>
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                </Trigger>
+                                <Trigger Property="Text" Value="{x:Null}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                </Trigger>
+                                <Trigger Property="IsKeyboardFocused" Value="True">
+                                    <Setter Property="Background" Value="White" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+                
+                <Button Content="Return to Main Page" Click="Button_Click_1" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

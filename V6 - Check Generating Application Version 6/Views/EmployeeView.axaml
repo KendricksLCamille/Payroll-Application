@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:Check_Generating_Application_Version_6.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Check_Generating_Application_Version_6.Views.EmployeeView">
+    <Design.DataContext>
+        <viewModels:EmployeeViewModel/>
+    </Design.DataContext>
+    <DockPanel>
+        <ListBox DockPanel.Dock="Left" Items="{Binding Items}" SelectedIndex="{Binding SelectedIndex}" />
+        <StackPanel DockPanel.Dock="Right">
+            <TextBox Watermark="Enter Name" Margin="10" Text="{Binding Name}" />
+            <TextBox Watermark="Enter Street Name" Margin="10" Text="{Binding StreetName}" />
+            <TextBox Watermark="Enter City" Margin="10" Text="{Binding City}" />
+            <TextBox Watermark="Enter State" Margin="10" Text="{Binding State}" />
+            <TextBox Watermark="Enter Zip Code" Margin="10" Text="{Binding ZipCode}" />
+            <TextBox Watermark="Enter Social Security Number" Margin="10" Text="{Binding SSN}" />
+            <Label Content="{Binding ErrorOutput}"/>
+        </StackPanel>
+    </DockPanel>
+</UserControl>

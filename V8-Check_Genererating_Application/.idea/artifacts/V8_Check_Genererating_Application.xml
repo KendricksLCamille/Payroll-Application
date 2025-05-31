@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" build-on-make="true" name="V8-Check_Genererating_Application">
+    <output-path>$PROJECT_DIR$/out/artifacts/V8_Check_Genererating_Application</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="com.example.v8check_genererating_application.HelloApplication" />
+        <option name="description" value="" />
+        <option name="height" value="800" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="Payroll System with Check Generation" />
+        <option name="vendor" value="Kendricks Tech Usa" />
+        <option name="version" value="7" />
+        <option name="width" value="1200" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="V8_Check_Genererating_Application.jar">
+        <element id="module-output" name="V8-Check_Genererating_Application" />
+        <element id="library" level="project" name="Maven: org.xerial:sqlite-jdbc:3.36.0.3" />
+      </element>
+    </root>
+  </artifact>
+</component>
